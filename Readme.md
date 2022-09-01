@@ -50,8 +50,8 @@ Dopo l'eliminazione dei record con le date delle prenotazioni non disponibili e/
 
 Di seguito un esempio dei report prodotti:
 
-- [Report RUA](./ReportHTML/Report_Interno.html) 
-- [Report DMP](./ReportHTML/Report_Portale.html) 
+- [Report RUA](https://htmlpreview.github.io/?./ReportHTML/Report_Interno.html) 
+- [Report DMP](https://htmlpreview.github.io/?./ReportHTML/Report_Portale.html) 
 
 
 
