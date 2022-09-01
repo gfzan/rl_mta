@@ -30,8 +30,6 @@ Riferimenti sulle caratteristiche di Python:
 
 I dati sono estratti dalla base dati del CUP attraverso un estrattore, applicazione integrata nel configuratore del CUP "CAMELIA". La struttura con cui sono estratti è rappresentata nel seguente diagramma dei dati:
 
-
-
 ![](./img/RL_MTA.drawio.png)
 
 I dati presenti in questi 3 file vengono caricati in memoria, vengono visualizzate le caratteristiche principali di questa struttura dati per notare quali campi contengono *missing value*, quali sono i dati identificativi di ogni singolo record (*chiavi primarie* e integrità referenziale), eventuali valori incongrui passibili di rimozione (nel nostro caso le date non assegnate avevano un valore data del 31.12.2999) , etc...
