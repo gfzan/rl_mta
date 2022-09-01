@@ -1,0 +1,66 @@
+html, body {
+    height:297mm;
+    width:220mm;
+    margin: 3mm 1mm 2mm 1mm;
+}
+
+h1 {
+  text-align: center;
+  padding: 1px;
+  line-height: 60%;
+  color: saddlebrown;
+}
+
+h2, h3 {
+  text-align: center;
+  padding: 1px;
+  line-height: 30%;
+  color: saddlebrown;
+}
+
+p {
+  padding-left: 30px;
+  padding-bottom: 1px;
+  color: blue;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  margin-bottom: 1px;
+}
+
+thead th {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size:14px;
+    text-align: center;    
+}
+
+th.level2 ~ td,
+tbody th.level2 ~ th {
+  border-top: 2px solid red;
+}
+
+th.level0 ~ td,
+tbody th.level0 ~ th,
+tbody th.level0 {
+  border-top: 3px solid red;
+}
+
+thead tr:last-child th {
+  border-collapse: collapse;
+  border-bottom: 1px solid #5555ff;
+}
+
+td {
+  text-align: center;
+}
+
+tbody th {
+  font-family:'AmstelvarAlpha';
+  font-style: normal;
+  font-weight: normal;
+  font-size:14px;
+}
+
+
+
+
+
