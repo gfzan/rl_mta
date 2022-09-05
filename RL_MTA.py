@@ -52,13 +52,7 @@ flusso_M_cols = ['Codice_ATS', 'Codice_Erogatore', 'Codice_Prestazione', 'Data_R
 
 
 class RL_MTA:
-    
-    # Flusso_M=pd.DataFrame()
-    # Flusso_D1=pd.DataFrame()
-    # Flusso_D2=pd.DataFrame()
-
-    
-    
+        
     def __init__(self, path, type="csv"):
         # type può avere valori ["csv", "xls"] 
         if type == "csv":
@@ -70,21 +64,45 @@ class RL_MTA:
                 elif 'D2' in file:
                     self.Flusso_D2 = pd.read_csv(file, sep=';', dtype=object, keep_default_na=False)
                     for col in dataColumns:
-                        try:
-                            self.Flusso_D2[col] = self.Flusso_D2[col].apply(lambda x: '' if x == 'nan' else x[4:]+'-'+x[2:4]+'-'+x[0:2]).replace('--','')
-                        except:
+                        if col in self.Flusso_D2.columns:             
+                            try:
+                                self.Flusso_D2[col] = self.Flusso_D2[col].apply(lambda x: '' if x == 'nan' else x[4:]+'-'+x[2:4]+'-'+x[0:2]).replace('--','')
+                            except:
+                                print('campi date non modificati come XX-XX-XXXX; verificare la causa')
+                                print('colonna non trovata in D2,csv : ', col)
+                                pass
+                        else:
                             pass
+                        
                 elif 'M' in file:
                     self.Flusso_M = pd.read_csv(file, sep=';', dtype=object, keep_default_na=False)
                     for col in dataColumns:
-                        try:
-                            self.Flusso_M[col] = self.Flusso_M[col].apply(lambda x: '' if x == 'nan' else x[4:]+'-'+x[2:4]+'-'+x[0:2]).replace('--','')
-                        except:
+                        if col in self.Flusso_M.columns:
+                            try:
+                                self.Flusso_M[col] = self.Flusso_M[col].apply(lambda x: '' if x == 'nan' else x[4:]+'-'+x[2:4]+'-'+x[0:2]).replace('--','')
+                            except:
+                                print('campi date non modificati come XX-XX-XXXX; verificare la causa')
+                                print('colonna non trovata in M.csv : ', col)
+                                pass
+                        else:
                             pass
                 else:
+                    print('NON sono stati caricati tutti i dati dei file D1, D2, M; verificare la causa')
+                    try:
+                        print('shape D1   =  D1.shape')
+                    except:
+                        print('file D1 non caricato')
+                    try:
+                        print('shape D2   =  D2.shape')
+                    except:
+                        print('file D2 non caricato')
+                    try:
+                        print('shape M    =  M.shape')
+                    except:
+                        print('file M non caricato')
                     pass
                 
-                print(file)
+                print('file elaborato : ', file)
                 
         elif type =="xls":
             os.chdir(path)
